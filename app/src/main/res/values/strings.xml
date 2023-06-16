@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="primer_numero">Primer número</string>
+    <string name="segundo_numero">Segundo número</string>
+    <string name="adicion">Adición</string>
+    <string name="sustraccion">Sustracción</string>
+    <string name="multiplicacion">Multiplicación</string>
+    <string name="division">División</string>
+    <string name="resultado">Resultado</string>
+    <string name="todo">TODO</string>
+    <string name="developer">Desarrollado por Hipólito Huaylla</string>
+</resources>
