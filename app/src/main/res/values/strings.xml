@@ -6,6 +6,7 @@
     <string name="sustraccion">Sustracción</string>
     <string name="multiplicacion">Multiplicación</string>
     <string name="division">División</string>
+    <string name="cerrar">Cerrar</string>
     <string name="resultado">Resultado</string>
     <string name="todo">TODO</string>
     <string name="developer">Desarrollado por Hipólito Huaylla</string>
