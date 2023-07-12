@@ -1,75 +1,67 @@
-package org.matematicasfacil.calculadora;
+package org.matematicasfacil.calculadora
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-public class MainActivity extends AppCompatActivity {
+class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        ImageView img_imagen = findViewById(R.id.imageView);
-        EditText dato1 = findViewById(R.id.editTextText1);
-        EditText dato2 = findViewById(R.id.editTextText2);
-        Button btn_adicion = findViewById(R.id.button1);
-        Button btn_sustraccion = findViewById(R.id.button2);
-        Button btn_multiplicacion = findViewById(R.id.button3);
-        Button btn_division = findViewById(R.id.button4);
-        Button btn_cerrar = findViewById(R.id.button5);
-        TextView resultado = findViewById(R.id.textView);
-        img_imagen.setImageResource(R.drawable.calculator);
-
-        Operacion suma = (a, b) -> a + b;
-        Operacion resta = (a, b) -> a - b;
-        Operacion multiplicacion = (a, b) -> a * b;
-        Operacion division = (a, b) -> a / b;
-
-        View.OnClickListener click = v -> {
-
-            if (v==btn_cerrar){
-                finish();// Cierra la actividad actual
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val img_imagen = findViewById<ImageView>(R.id.imageView)
+        val dato1 = findViewById<EditText>(R.id.editTextText1)
+        val dato2 = findViewById<EditText>(R.id.editTextText2)
+        val btn_adicion = findViewById<Button>(R.id.button1)
+        val btn_sustraccion = findViewById<Button>(R.id.button2)
+        val btn_multiplicacion = findViewById<Button>(R.id.button3)
+        val btn_division = findViewById<Button>(R.id.button4)
+        val btn_cerrar = findViewById<Button>(R.id.button5)
+        val resultado = findViewById<TextView>(R.id.textView)
+        img_imagen.setImageResource(R.drawable.calculator)
+        val suma = Operacion { a: Int, b: Int -> a + b }
+        val resta = Operacion { a: Int, b: Int -> a - b }
+        val multiplicacion = Operacion { a: Int, b: Int -> a * b }
+        val division = Operacion { a: Int, b: Int -> a / b }
+        val click = View.OnClickListener { v: View ->
+            if (v === btn_cerrar) {
+                finish() // Cierra la actividad actual
                 //finishAffinity(); // Finaliza todas las actividades en el stack
                 //System.exit(0); // Cierra por completo la aplicación
             }
-
-            if (v==btn_adicion & v==btn_sustraccion & v==btn_multiplicacion & v==btn_division &
-                dato1.getText().toString().isBlank()||dato2.getText().toString().isBlank()){
-                Toast.makeText(getBaseContext(),"Falta ingresar números", Toast.LENGTH_SHORT).show();
-                return;
+            if ((v === btn_adicion) and (v === btn_sustraccion) and (v === btn_multiplicacion) and (v === btn_division) and
+                dato1.text.toString().isBlank() || dato2.text.toString().isBlank()
+            ) {
+                Toast.makeText(baseContext, "Falta ingresar números", Toast.LENGTH_SHORT).show()
+                return@OnClickListener
             }
-
-            int n1 = Integer.parseInt(dato1.getText().toString());
-            int n2 = Integer.parseInt(dato2.getText().toString());
-
-            if(v==btn_division & n2==0){
-                Toast.makeText(getBaseContext(),"No se puede dividir por cero", Toast.LENGTH_SHORT).show();
-                return;
+            val n1 = dato1.text.toString().toInt()
+            val n2 = dato2.text.toString().toInt()
+            if ((v === btn_division) and (n2 == 0)) {
+                Toast.makeText(baseContext, "No se puede dividir por cero", Toast.LENGTH_SHORT)
+                    .show()
+                return@OnClickListener
             }
-
-            if(v == btn_adicion){
-                resultado.setText(suma.apply(n1, n2) + "");
-            } else if (v == btn_sustraccion) {
-                resultado.setText(resta.apply(n1, n2) + "");
-            } else if (v == btn_multiplicacion) {
-                resultado.setText(multiplicacion.apply(n1, n2) + "");
-            } else if (v == btn_division) {
-                resultado.setText(division.apply(n1, n2) + "");
+            if (v === btn_adicion) {
+                resultado.text = suma.apply(n1, n2).toString() + ""
+            } else if (v === btn_sustraccion) {
+                resultado.text = resta.apply(n1, n2).toString() + ""
+            } else if (v === btn_multiplicacion) {
+                resultado.text = multiplicacion.apply(n1, n2).toString() + ""
+            } else if (v === btn_division) {
+                resultado.text = division.apply(n1, n2).toString() + ""
             }
-        };
-        btn_adicion.setOnClickListener(click);
-        btn_sustraccion.setOnClickListener(click);
-        btn_multiplicacion.setOnClickListener(click);
-        btn_division.setOnClickListener(click);
-        btn_cerrar.setOnClickListener(click);
+        }
+        btn_adicion.setOnClickListener(click)
+        btn_sustraccion.setOnClickListener(click)
+        btn_multiplicacion.setOnClickListener(click)
+        btn_division.setOnClickListener(click)
+        btn_cerrar.setOnClickListener(click)
     }
 }
