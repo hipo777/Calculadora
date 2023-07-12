@@ -20,7 +20,7 @@
         android:contentDescription="@string/todo" />
 
     <EditText
-        android:id="@+id/editTextText1"
+        android:id="@+id/eT1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -37,7 +37,7 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/eT2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -49,49 +49,49 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText1"
+        app:layout_constraintTop_toBottomOf="@+id/eT1"
         app:layout_constraintVertical_bias="0.05"
         android:autofillHints="" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnAdicion"
         android:text="@string/adicion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2"
+        app:layout_constraintTop_toBottomOf="@+id/eT2"
         app:layout_constraintVertical_bias="0.05"
         style="@style/buttonStyle" />
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnSustraccion"
         android:text="@string/sustraccion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdicion"
         app:layout_constraintVertical_bias="0.05"
         style="@style/buttonStyle"/>
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnMultiplicacion"
         android:text="@string/multiplicacion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/btnSustraccion"
         app:layout_constraintVertical_bias="0.05"
         style="@style/buttonStyle"/>
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnDivision"
         android:text="@string/division"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/btnMultiplicacion"
         app:layout_constraintVertical_bias="0.05"
         style="@style/buttonStyle"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/resultado"
@@ -102,15 +102,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/btnDivision"
         app:layout_constraintVertical_bias="0.05" />
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnCerrar"
         android:text="@string/cerrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tvResultado"
         app:layout_constraintVertical_bias="0.05"
         style="@style/buttonStyle"/>
 
